@@ -101,7 +101,7 @@ class AddEditNoteViewModel @Inject constructor(
                         )
                         _eventFlow.emit(UiEvent.SaveNote)
                     } catch (e: InvalidNoteException) {
-                        _eventFlow.emit(UiEvent.showSnackbar(message = e.message ?: " Unknown error"))
+                        _eventFlow.emit(UiEvent.ShowSnackbar(message = e.message ?: " Unknown error"))
                     }
                 }
             }
@@ -109,7 +109,7 @@ class AddEditNoteViewModel @Inject constructor(
     }
 
     sealed class UiEvent {
-        data class showSnackbar(val message: String) : UiEvent()
+        data class ShowSnackbar(val message: String) : UiEvent()
         object SaveNote: UiEvent()
     }
 }
